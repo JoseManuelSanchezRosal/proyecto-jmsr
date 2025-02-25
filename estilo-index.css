@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(143, 205, 216);
+}
+.grid-container {
+    display: grid;
+    gap: 10px;
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 10px;
+    grid-template:  "header"200px
+                    "menu"40px
+                    "cuerpo"
+                    "footer";
+}
+    @keyframes moverFondo {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+.header{
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #0d0d0d, #014034, #02735e, #038c73, #36bfb1);
+    background-size: 400% 400%;
+    animation: moverFondo 10s infinite alternate;
+    border: 5px solid black;
+    color: white;
+  
+}
+.menu{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: menu;
+    background-color: #038c73;
+    border: 5px solid black;
+}
+.cuerpo{
+    grid-area: cuerpo;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color: white;
+    background-color: #02735e;
+    border: 5px solid black;
+    font-size: 20px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.footer{
+    grid-area: footer;
+    background-color: #014034;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: center;
+    flex-wrap: wrap;
+    border: 5px solid black;
+    height: 60px;
+}
+.img{
+    width: 150px;
+}
+a{
+    color: white;
+    font-size: 20px;
+}
+a:hover{
+    font-size: 20px; /* Tamaño inicial del texto */
+    background-color: #333; /* Color de fondo inicial */
+    color: white; /* Color del texto inicial */
+    text-decoration: wavy; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado alrededor del texto */
+    border-radius: 10px; /* Esquinas redondeadas */
+    transition: all 0.5s ease; /* Transición suave de todos los cambios */
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .grid-container{
+        height: 100%;
+        grid-template: "header"140px
+                        "menu"50px
+                        "cuerpo"400px
+                        "footer";
+    }
+    body{
+        height: 100%;
+        background-color: rgb(66, 140, 153);
+    }
+    .header{
+        grid-area: header;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .footer{
+        grid-area: footer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+       
+    }
+    .cuerpo{
+        grid-area: cuerpo;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        height: auto;
+    }
+    .menu{
+        grid-area: menu;
+    }
+}
+
+@media (min-width: 1025px){
+    body{
+        height: 100%;
+        background-color: #083b32;
+    }
+    .header{
+        grid-area: header;
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(136, 60, 60);
+        justify-content: space-around;
+    }
+    .footer{
+        grid-area: footer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .menu{
+        grid-area: menu;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .grid-container{
+        display: grid;
+        grid-template:  "header header header" 140px
+                        "menu cuerpo cuerpo" auto
+                        "footer footer footer" 60px /
+                        160px auto;
+    }
+}
