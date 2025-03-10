@@ -29,7 +29,7 @@ try {
 
 
 // Obtener todos los productos
-$productos = $pdo->query("SELECT * FROM productos")->fetchAll(PDO::FETCH_ASSOC);
+$productos = $pdo->query("SELECT p.id_producto, p.nombre_producto, p.descripcion_producto, p.cantidad_producto, f.nombre_fabricante, c.nombre_categoria FROM productos p JOIN fabricantes f ON p.id_fabricante = f.id_fabricante JOIN categorias c ON p.id_categoria = c.id_categoria")->fetchAll(PDO::FETCH_ASSOC);
 
 // Obtener fabricantes y categorías para los formularios
 $fabricantes = $pdo->query("SELECT * FROM fabricantes")->fetchAll(PDO::FETCH_ASSOC);
@@ -118,8 +118,8 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'eliminar') {
             <td><?= $producto['nombre_producto'] ?></td>
             <td><?= $producto['descripcion_producto'] ?></td>
             <td><?= $producto['cantidad_producto'] ?></td>
-            <td><?= $producto['id_fabricante'] ?></td>
-            <td><?= $producto['id_categoria'] ?></td>
+            <td><?= $producto['nombre_fabricante'] ?></td>
+            <td><?= $producto['nombre_categoria'] ?></td>
             <td>
                 <a href="index.php?accion=editar&id_producto=<?= $producto['id_producto'] ?>">Editar</a>
                 <a href="index.php?accion=eliminar&id_producto=<?= $producto['id_producto'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?')">Eliminar</a>
